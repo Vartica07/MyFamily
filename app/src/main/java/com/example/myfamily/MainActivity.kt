@@ -14,15 +14,25 @@ class MainActivity : AppCompatActivity() {
 
         bottomBar.setOnItemReselectedListener {
 
-            if(it.itemId == R.id.nav_guard){
-                inflateFragment(NewGuardFragment.newInstance())
-            }
-            else if(it.itemId == R.id.nav_home){
-                inflateFragment(HomeFragment.newInstance())
+            when (it.itemId) {
+                R.id.nav_guard -> {
+                    inflateFragment(NewGuardFragment.newInstance())
+                }
+                R.id.nav_home -> {
+                    inflateFragment(HomeFragment.newInstance())
+                }
+                R.id.nav_dashboard -> {
+                    inflateFragment(DashboardFragment.newInstance())
+                }
+                R.id.nav_profile -> {
+                    inflateFragment(ProfileFragment.newInstance())
+                }
             }
 
             true
         }
+
+        bottomBar.selectedItemId = R.id.nav_home
     }
 
     private fun inflateFragment(newInstance: Fragment) {
