@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/grey_bg"
     tools:context=".HomeFragment">
 
     <TextView
@@ -34,7 +35,7 @@
         android:layout_height="24dp"
         android:layout_margin="@dimen/dimen_8"
         android:src="@drawable/ic_more"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -42,7 +43,26 @@
         tools:listitem="@layout/item_member"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/invite_card"
         app:layout_constraintTop_toBottomOf="@id/title"
         app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/invite_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_16"
+        app:cardCornerRadius="@dimen/dimen_16"
+        app:cardElevation="@dimen/dimen_8"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_invite"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="@dimen/dimen_8"
+            tools:listitem="@layout/item_invite" />
+
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
